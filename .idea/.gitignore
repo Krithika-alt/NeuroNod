@@ -15,6 +15,5 @@
 
 # Personal IntelliJ settings (the stuff that breaks other people's laptops)
 .idea/workspace.xml
-.idea/libraries/
 .idea/modules.xml
 *.iml
