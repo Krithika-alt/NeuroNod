@@ -13,14 +13,13 @@ public class MockDataGenerator {
         for (int i = 0; i < 120; i++) { // 120 points = 10 hours of data (every 5 mins)
             long time = startTime + (i * 5 * 60 * 1000);
 
-            // Create a "U-Shape" curve for the heart rate
             // High at start/end, low in the middle (around point 60)
             double baseHR = 70.0 - (15.0 * Math.sin(Math.PI * i / 120.0));
 
-            // Add some "Noise" (Random jitters)
+            // Adding "Noise" (Random jitters)
             double noise = rand.nextDouble() * 5.0;
 
-            // Occasionally add a "Glitch" (Outlier) to test your filter
+            // Adding outliers to test filter
             double finalHR = (rand.nextInt(50) == 0) ? 250.0 : baseHR + noise;
 
             data.add(new CircadianData(time, finalHR, rand.nextInt(5) + 1));
